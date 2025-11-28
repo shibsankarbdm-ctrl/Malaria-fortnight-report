@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HTML Form</title>
+<style type="text/css">
+
+body{
+	font-size: 12px;
+	background: #90EE90;
+    }
+h2{	
+ 	text-align: center;
+  }
+h4{
+	text-align: center;
+	border-bottom: 2px solid green;
+   }
+form{
+	width: 300px;
+	background: #D3D3D3;
+	padding: 15px 40px 40px;
+	margin: 50px auto o;
+	border: 2px solid #008000;
+	border-radius: 10px; 
+    }
+fieldset{
+	border-radius: 10px;
+        }
+input,select{
+	border: 1px solid #ccc;
+	padding: 10px;
+	width: 100%;
+	box-sizing: border-box;
+	border-radius: 10px;
+       }
+div{
+	padding-bottom: 12px
+    }
+.form-inline{
+	display: inline-block;
+	width: auto;
+     }
+.form-inline2{
+	display: inline-block;
+	width: 48%;
+	gap: 20px;
+     }
+.form-inline3{
+	display: inline-block;
+	width: 32%;
+	gap: 10px;
+     }
+.form-inline4{
+	display: inline-block;
+	width: 48%;
+	gap: 20px;
+     }
+.aaa{
+	display: flex;
+}
+.submit-btn{
+	background-color: #B22222;
+	padding: 10px 100px;
+	border-radius: 10px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+	}
+</style>
+<script>
+    function updateSum() {
+        const a = parseFloat(document.getElementById("num1").value) || 0;
+        const b = parseFloat(document.getElementById("num2").value) || 0;
+        document.getElementById("sum").value = a + b;
+    	const x = parseFloat(document.getElementById("Per1").value)||0;
+        const y = parseFloat(document.getElementById("sum").value||0);
+        document.getElementById("Percentage").value = (y / x) * 100 ;
+        
+    }
+</script>
+<script>
+    function updateSum1() {
+        const a = parseFloat(document.getElementById("number1").value) || 0;
+        const b = parseFloat(document.getElementById("number2").value) || 0;
+        document.getElementById("sum1").value = a + b;
+    }
+</script>
+<script>
+    function updateSum2() {
+        const a = parseFloat(document.getElementById("n1").value) || 0;
+        const b = parseFloat(document.getElementById("n2").value) || 0;
+        document.getElementById("sum2").value = a + b;
+    }
+</script>
+</head>
+<script>
+    function updatePercentage() {
+       const x = parseFloat(document.getElementById("Per1").value)||0;
+        const y = parseFloat(document.getElementById("sum").value||0);
+        document.getElementById("Percentage").value = (y / x) * 100 ;
+    }
+</script>
+
+<body><center>
+<form>
+   <h2>Malaria Fortnight Report</h2>
+   <h4>Mandirbazar Block, Diamond Harbour HD</h4>
+   <fieldset>
+    <legend >Personal Information</legend> 
+  <div class="form-inline">
+	<label>From:</label><br>
+        <input type="date" required>
+  </div>
+  <div class="form-inline">
+	<label>To:</label><br>
+        <input type="date" required>
+  </div>
+  <div class="form-inline2">
+  <label>Fortnight Type:</label><br>
+	<select name="Fortnight Type">
+	<option>Select</option>
+        <option>1st Fortnight Report</option>
+        <option>2nd Fortnight Report</option>
+        </select>
+  </div>
+  <div class="form-inline2">
+  <lebel>Facility Name:</lebel><br>
+  	<select name="Facility Name">
+	<option class="aaa">Select</option>
+	<option>Anchna GPSC</option>
+	<option>Banshidharpur</option>
+	<option>Bazarberia</option>
+	<option>Bireswarpur</option>
+	<option>Brindabanpur</option>
+	<option>Chandpur Chaitanyapur</option>
+	<option>Dhannayaghata</option>
+	<option>Dhanurhat GPSC</option>
+	<option>Enathpur</option>
+	<option>Gabberia GPSC</option>
+	<option>Gabberia Sc</option>
+	<option>Ghateswar GPSC</option>
+	<option>Ghateswar Sc</option>
+	<option>Gobindabati</option>
+	<option>Gorijala</option>
+	<option>Jagdispur GPSC</option>
+	<option>Kecherkur GPSC</option>
+	<option>Krishnapur GPSC</option>
+	<option>Mallickpur</option>
+	<option>Mandaptala</option>
+	<option>Naiyarat</option>
+	<option>Nishapur GPSC</option>
+	<option>Purbo Gopalnagar</option>
+	<option>South Bishnupur GPSC</option>
+	<option>Tekpanja</option>
+	</select>
+  </lebel>
+  </div>
+</fieldset>
+<fieldset>
+    <legend >Fever Cases & RDT</legend> 
+<div>
+  <label>Total Number of Fever Case as in M1:</label>
+    <input type="number" id="Per1" oninput = "updatePercentage()" required>
+</div>
+<div class="form-inline3">
+  <label>Active RDT:</label>
+    <input type="number" id="num1" oninput="updateSum()" required>
+</div>
+<div class="form-inline3">
+   <label>Passive RDT:</label>
+    <input type="number" id="num2" oninput="updateSum()" required>
+</div>
+<div class="form-inline3">
+  <label>Total RDT:</label>
+    <input type="text" id="sum" readonly>
+</div>
+
+<div class="form-inline">
+  <label >RDT Performance:</label>
+    <input type="text" id="Percentage" oninput = "updatePercentage()" readonly>
+</div>
+</fieldset>
+<fieldset>
+    <legend >Result of RDT</legend>
+<div class="form-inline4">
+  <lebel>PV:</lebel><br>
+  <input type="text" required>
+</div>
+<div class="form-inline4">
+  <lebel>PF:</lebel><br>
+  <input type="text" required>
+</div>
+</fieldset>
+<fieldset>
+    <legend >Blood Slide Collection</legend>
+	<div class="form-inline3">
+    <label>Active Collection:</label>
+    <input type="number" id="number1" oninput="updateSum1()" required>
+</div>
+<div class="form-inline3">
+    <label>Passive Collection:</label>
+    <input type="number" id="number2" oninput="updateSum1()" required>
+</div>
+<div class="form-inline3">
+    <label>Total Collection:</label>
+    <input type="text" id="sum1" readonly>
+</div>
+</fieldset>
+<fieldset>
+    <legend >Mass Survey:</legend>
+    	<div class="form-inline3">
+    <label>Active Blood Slide Collection:</label>
+    <input type="number" id="n1" oninput="updateSum2()">
+</div>
+<div class="form-inline3">
+    <label>Active RDT Collection:</label>
+    <input type="number" id="n2" oninput="updateSum2()">
+</div>
+<div class="form-inline3">
+    <label>Total Collection:</label>
+    <input type="text" id="sum2" readonly>
+</div>
+</fieldset><br>
+<button type=""Submit" class="submit-btn">Submit Report</button>
+<br><br>
+<center><font color="green">@Developed by Shibsankar Samanta<br>Block Data Manager, Mandirbazar Block</font><center>
+</form>
+</center>
+</body>
+</html>
